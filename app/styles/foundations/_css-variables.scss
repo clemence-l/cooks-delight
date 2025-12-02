@@ -1,0 +1,22 @@
+@use './functions' as *;
+
+:root {
+  --color-background: var(--light);
+
+  --dark: #262522;
+  --light: #f0ebe1;
+  --lighter: #FFFBF2;
+  --green: #9fdc26;
+  --orange: #f29c33;
+  --red: #ee6352;
+  --blue: #c4e5fc;
+
+  --dark-24: rgba(38, 37, 34, 0.24);
+  --dark-16: rgba(38, 37, 34, 0.16);
+  --dark-8: rgba(38, 37, 34, 0.08);
+
+  --light-16: rgba(240, 235, 225, 0.16);
+  --light-8: rgba(240, 235, 225, 0.08);
+
+  --font-size-base: #{rem(14)};
+}

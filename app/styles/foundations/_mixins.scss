@@ -1,0 +1,145 @@
+@use 'functions' as *;
+@use 'variables' as *;
+
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+// TEXTS
+@mixin headline-1 {
+  font-family: Montserrat;
+  font-size: rem(80);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+@mixin headline-2 {
+  font-family: Montserrat;
+  font-size: rem(40);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@mixin headline-3 {
+  font-family: Montserrat;
+  font-size: rem(24);
+  font-weight: 700;
+  line-height: 120%;
+}
+
+@mixin paragraph-1 {
+  font-size: rem(21);
+  font-weight: 400;
+  line-height: 140%;
+}
+
+@mixin paragraph-2 {
+  font-size: rem(16);
+  font-weight: 300;
+  line-height: 140%;
+}
+
+@mixin subtitle {
+  font-family: Montserrat;
+  font-size: rem(18);
+  font-weight: 600;
+  line-height: 140%;
+  text-transform: uppercase;
+}
+
+@mixin tagline {
+  font-size: rem(18);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+@mixin small-text {
+  font-size: rem(12);
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+
+@mixin button-text {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+// MOBILE TEXTS
+@mixin m-headline-1 {
+  font-family: Montserrat;
+  font-size: rem(38);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+@mixin m-headline-2 {
+  font-family: Montserrat;
+  font-size: rem(26);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@mixin m-headline-3 {
+  font-family: Montserrat;
+  font-size: rem(21);
+  font-weight: 700;
+  line-height: 120%;
+}
+
+@mixin m-paragraph-1 {
+  font-size: rem(16);
+  font-weight: 400;
+  line-height: 140%;
+}
+
+@mixin m-paragraph-2 {
+  font-size: rem(14);
+  font-weight: 300;
+  line-height: 140%;
+}
+
+@mixin m-subtitle {
+  font-family: Montserrat;
+  font-size: rem(16);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@mixin m-tagline {
+  font-size: rem(16);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+// BREAKPOINTS
+@mixin small-only {
+  @media (max-width: rem(360)) {
+    @content;
+  }
+}
+@mixin medium-up {
+  @media (min-width: rem(768)) {
+    @content;
+  }
+}
+
+@mixin medium-down {
+  @media (max-width: rem(767)) {
+    @content;
+  }
+}
+
+@mixin large-up {
+  @media (min-width: rem(1024)) {
+    @content;
+  }
+}
+
+@mixin large-down {
+  @media (max-width: rem(1023)) {
+    @content;
+  }
+}
