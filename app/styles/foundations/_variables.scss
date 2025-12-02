@@ -1,0 +1,7 @@
+@use './functions' as *;
+
+:root {
+  --small-breakpoints: rem(360);
+  --medium-breakpoints: rem(768);
+  --large-breakpoints: rem(1024);
+}
