@@ -97,7 +97,7 @@ watch(search, () => {
           </template>
           <template #link>
             <NuxtLink :to="`/books/${book.slug.current}`">
-              <MyButton variant="outline"> Voir le livre </MyButton>
+              <MyButton variant="outline">Voir le livre</MyButton>
             </NuxtLink>
           </template>
         </MyCard>
