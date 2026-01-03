@@ -1,11 +1,10 @@
 <script setup lang="ts">
 defineProps<{
-    modelValue: string | number;
-  label?: string
-  type: 'text' | 'email' | 'password' | 'textarea'
-  placeholder?: string
-}>()
-
+  modelValue?: string | number;
+  label?: string;
+  type: "text" | "email" | "password" | "textarea" | "search";
+  placeholder?: string;
+}>();
 
 defineEmits<{
   (e: "update:modelValue", value: string | number): void;
@@ -19,15 +18,30 @@ defineEmits<{
       <textarea
         :placeholder="placeholder"
         :value="modelValue"
-        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+        @input="
+          $emit('update:modelValue', ($event.target as HTMLInputElement).value)
+        "
       />
+    </template>
+    <template v-else-if="type === 'search'">
+      <input
+        type="text"
+        :value="modelValue"
+        class="searchBar"
+        :placeholder="placeholder || 'Rechercher une recette...'"
+        @input="
+          $emit('update:modelValue', ($event.target as HTMLInputElement).value)
+        "
+      >
     </template>
     <template v-else>
       <input
         :type="type || 'text'"
         :placeholder="placeholder"
         :value="modelValue"
-        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+        @input="
+          $emit('update:modelValue', ($event.target as HTMLInputElement).value)
+        "
       >
     </template>
   </div>
@@ -60,4 +74,3 @@ defineEmits<{
   }
 }
 </style>
-
