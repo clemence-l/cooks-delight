@@ -15,7 +15,6 @@ async function onSubmit() {
   if (
     !payload.value.title ||
     !payload.value.description ||
-    !payload.value.image_url ||
     payload.value.cuisine_id === 0 ||
     payload.value.goal_id === 0
   ) {
