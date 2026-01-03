@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
@@ -10,19 +9,6 @@ export default defineNuxtConfig({
       extensions: ["vue"],
     },
   ],
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: `
-            @use "@/styles/foundations/functions" as *;
-            @use "@/styles/foundations/variables" as *;
-            @use "@/styles/foundations/mixins" as *;
-          `,
-        },
-      },
-    },
-  },
 
   runtimeConfig: {
     public: {
@@ -33,5 +19,26 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@nuxt/image",
     "@nuxt/test-utils",
+    "@nuxtjs/sanity",
   ],
+  vite: {
+    optimizeDeps: {
+      include: ["react-compiler-runtime", "react", "react-dom"],
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+              @use "@/styles/foundations/functions" as *;
+              @use "@/styles/foundations/variables" as *;
+              @use "@/styles/foundations/mixins" as *;
+            `,
+        },
+      },
+    },
+  },
+  sanity: {
+    projectId: "to2wqpsw",
+    dataset: "production",
+  },
 });
