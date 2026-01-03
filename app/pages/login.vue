@@ -91,7 +91,7 @@ async function onSubmit() {
   </MyForm>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 p {
   transition: transform 0.2s ease;
   &:hover {
