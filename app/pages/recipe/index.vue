@@ -86,6 +86,7 @@ if (error && error.value) throw new Error("Page not Found");
             <!-- <img src="/img/star.svg" alt="" /> -->
             <!-- {{ recipe.rating }} -->
           </template>
+
           <template #link>
             <NuxtLink :to="`/recipe/${recipe.recipe_id}`">
               <MyButton variant="outline">Voir la recette</MyButton>
@@ -116,34 +117,49 @@ if (error && error.value) throw new Error("Page not Found");
   gap: rem(24);
   align-items: center;
   width: 100%;
+  padding-bottom: rem(40);
 
   > .input,
-  > a,
-  > MyButton {
-    display: flex;
-    justify-content: center;
+  > a {
     width: 100%;
     max-width: rem(600);
+    display: flex;
+    justify-content: center;
   }
 
   &__grid {
-    display: grid;
     width: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: rem(16);
-    justify-items: center;
+    display: grid;
+    gap: rem(24);
     li {
       width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    @include medium-up {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @include medium-down {
+      grid-template-columns: 1fr;
     }
   }
 
   &__pagination {
     position: sticky;
     bottom: 0;
-    align-self: center;
-    margin-top: rem(16);
-    padding: rem(20) rem(0);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: rem(20) 0;
+    margin-top: rem(24);
     z-index: 10;
+    background: linear-gradient(
+      to top,
+      var(--light) 70%,
+      rgba(255, 255, 255, 0)
+    );
   }
 }
 </style>

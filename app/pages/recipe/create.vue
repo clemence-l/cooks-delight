@@ -94,32 +94,71 @@ async function onSubmit() {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .recipe {
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: rem(32) rem(16);
+  padding: rem(48) rem(16);
+
+  @include medium-down {
+    padding: rem(32) rem(16);
+  }
+
+  @include small-only {
+    padding: rem(24) rem(12);
+  }
+
+  :deep(.form) {
+    width: 100%;
+    max-width: rem(560);
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+
+    @include medium-down {
+      gap: rem(20);
+    }
+  }
+
   &__select {
     display: flex;
     flex-direction: column;
     gap: rem(8);
     width: 100%;
 
+    label {
+      font-size: rem(14);
+      color: var(--dark-64);
+    }
+
     select {
-      padding: rem(10) rem(14);
-      border-radius: rem(12);
+      width: 100%;
+      padding: rem(12) rem(16);
+      border-radius: rem(14);
       border: rem(1) solid var(--dark-24);
       background: var(--lighter);
-      transition: border 0.2s ease;
+      font-size: rem(14);
+      transition: border 0.2s ease, box-shadow 0.2s ease;
 
       &:focus {
         outline: none;
         border-color: var(--orange);
+        box-shadow: 0 0 0 rem(2) rgba(255, 122, 0, 0.15);
       }
     }
   }
+
+  :deep(button) {
+    margin-top: rem(16);
+    align-self: flex-end;
+
+    @include medium-down {
+      width: 100%;
+      align-self: center;
+    }
+  }
 }
+
 </style>
