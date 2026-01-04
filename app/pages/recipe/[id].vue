@@ -56,32 +56,65 @@ if (!recipe.value || error.value) throw new Error("Recipe not Found");
 .recipe {
   display: flex;
   flex-direction: column;
-  gap: rem(32);
+  gap: rem(40);
   align-items: center;
-  margin-bottom: rem(16);
+  width: 100%;
+  margin-bottom: rem(32);
+
+  @include medium-down {
+    gap: rem(32);
+  }
 
   img {
     width: 100%;
     max-height: rem(500);
     border-radius: rem(24);
     object-fit: cover;
+
+    @include large-down {
+      max-height: rem(420);
+    }
+
+    @include medium-down {
+      max-height: rem(300);
+      border-radius: rem(20);
+    }
+
+    @include small-only {
+      max-height: rem(220);
+      border-radius: rem(16);
+    }
   }
 
   &__layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: rem(32);
     width: 100%;
+    gap: rem(32);
+    align-items: flex-start;
+
+    @include large-up {
+      grid-template-columns: rem(320) 1fr;
+    }
+
+    @include large-down {
+      grid-template-columns: 1fr;
+      gap: rem(24);
+    }
 
     &__aside {
       background: var(--lighter);
       border: rem(1) solid var(--dark-24);
-      border-radius: rem(16);
+      border-radius: rem(20);
       padding: rem(24);
       display: flex;
       flex-direction: column;
       gap: rem(16);
-      max-width: rem(320);
+      position: sticky;
+      top: rem(24);
+
+      @include large-down {
+        position: static;
+      }
 
       ul {
         list-style: none;
@@ -91,10 +124,14 @@ if (!recipe.value || error.value) throw new Error("Recipe not Found");
         gap: rem(10);
 
         li {
+          display: flex;
+          align-items: flex-start;
+
           &::before {
             content: "•";
             color: var(--orange);
-            margin-right: rem(6);
+            margin-right: rem(8);
+            line-height: 1.4;
           }
         }
       }
@@ -106,14 +143,21 @@ if (!recipe.value || error.value) throw new Error("Recipe not Found");
       gap: rem(24);
 
       li {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: rem(40) 1fr;
+        gap: rem(16);
         background: var(--lighter);
-        border-radius: rem(16);
+        border-radius: rem(20);
         border: rem(1) solid var(--dark-24);
-        padding: rem(16);
+        padding: rem(20);
+
+        @include medium-down {
+          grid-template-columns: 1fr;
+          gap: rem(12);
+        }
       }
     }
   }
 }
+
 </style>

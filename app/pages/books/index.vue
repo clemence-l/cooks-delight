@@ -135,20 +135,41 @@ watch(search, () => {
     display: grid;
     width: 100%;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: rem(16);
+    gap: rem(16);
     justify-items: center;
+
     li {
       width: 100%;
+    }
+
+    @include medium-down {
+      grid-template-columns: 1fr;
+      gap: rem(20);
+    }
+
+    @include small-only {
+      gap: rem(16);
+    }
+
+    @include large-up {
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 
   &__pagination {
     position: sticky;
     bottom: 0;
-    align-self: center;
-    margin-top: rem(16);
-    padding: rem(20) rem(0);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: rem(20) 0;
+    margin-top: rem(24);
     z-index: 10;
+    background: linear-gradient(
+      to top,
+      var(--light) 70%,
+      rgba(255, 255, 255, 0)
+    );
   }
 }
 </style>
