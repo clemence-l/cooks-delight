@@ -43,7 +43,7 @@ console.log(data.value);
     </aside>
 
     <div class="dashboard__main">
-      <p>TODO</p>
+      <p>Bienvenue sur votre profil</p>
     </div>
       
   </div>
