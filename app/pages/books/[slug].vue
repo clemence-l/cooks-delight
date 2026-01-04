@@ -46,15 +46,31 @@ const { urlFor } = useSanityImage();
   border-radius: rem(48);
   margin-bottom: rem(16);
 
+  @include medium-down {
+    grid-template-columns: 1fr;
+    gap: rem(24);
+    text-align: center;
+    border-radius: rem(24);
+  }
+
   &__cover {
     width: 100%;
     border-radius: rem(16);
+
+    @include medium-down {
+      max-width: rem(280);
+      margin: 0 auto;
+    }
   }
 
   &__meta {
     display: flex;
     flex-direction: column;
     gap: rem(12);
+
+    @include medium-down {
+      align-items: center;
+    }
   }
 }
 </style>
