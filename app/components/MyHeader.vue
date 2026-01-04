@@ -48,24 +48,61 @@ header {
   margin-bottom: rem(16);
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: rem(8) rem(24);
   border: 1px solid var(--dark-24);
   border-radius: rem(32);
-  align-items: center;
+  gap: rem(16);
+
+  @include medium-down {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: rem(12) rem(16);
+    gap: rem(12);
+  }
 
   div {
     display: flex;
     gap: rem(16);
-  }
-}
-ul {
-  padding: 0;
-  display: flex;
-  gap: rem(24);
 
-  li {
-    padding: rem(16) rem(8);
-    border-bottom: rem(1) solid var(--light-16);
+    @include medium-down {
+      width: 100%;
+      justify-content: flex-start;
+    }
   }
 }
+
+nav {
+  ul {
+    padding: 0;
+    display: flex;
+    gap: rem(24);
+
+    @include medium-down {
+      flex-direction: column;
+      gap: rem(12);
+      width: 100%;
+    }
+
+    li {
+      padding: rem(16) rem(8);
+      border-bottom: rem(1) solid var(--light-16);
+
+      @include medium-down {
+        padding: rem(8) rem(0);
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+img {
+  max-height: rem(48);
+  object-fit: contain;
+
+  @include small-only {
+    max-height: rem(36);
+  }
+}
+
 </style>
