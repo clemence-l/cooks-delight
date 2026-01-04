@@ -1,75 +1,51 @@
-# Nuxt Minimal Starter
+# Cooks Delight
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Application web permettant de consulter, créer et gérer des recettes, avec un système d’authentification utilisateur.
 
-## Setup
+---
 
-Make sure to install dependencies:
+## Fonctionnalités principales
 
-```bash
-# npm
-npm install
+* Homepage & settings gérés dans le CMS Sanity
+* Grille de recettes dynamique via l’API express avec pagination
+* Système de connexion / déconnexion
+* middleware pour protéger les pages de dashboard
+* middleware pour rediriger vers le dashboard un utilisateur déjà connecté
+* Listing de livres de recettes gérés dans le CMS Sanity
+* Interface responsive et composants réutilisables
 
-# pnpm
-pnpm install
+---
 
-# yarn
-yarn install
+## Convention de nommage des commits et des Pull Requests
 
-# bun
-bun install
-```
+Tout au long du projet, une convention de nommage claire a été utilisée pour les **commits** et les **Pull Requests**, afin de faciliter la compréhension de l’historique du projet.
 
-## Development Server
+### Commits
 
-Start the development server on `http://localhost:3000`:
+Les messages de commit sont principalement en anglais et suivent la structure suivante :
 
-```bash
-# npm
-npm run dev
+type(nom_de_la_feature) : description de la modification
 
-# pnpm
-pnpm dev
+#### Les types utilisés
 
-# yarn
-yarn dev
+* **feat** : ajout d’une fonctionnalité
+  `feat(favorite) : add favorite logic`
+* **fix** : correction d’un bug
+  `fix(recipe) : fix recipe display on profile`
+* **style** : modifications liées au style ou au CSS
+  `style(card) : upgrade cards layout`
 
-# bun
-bun run dev
-```
+---
 
-## Production
+### Pull Requests
 
-Build the application for production:
+Les Pull Requests utilisent un titre explicite reprenant le type de modification principale :
 
-```bash
-# npm
-npm run build
+type(nom_de_la_feature) : description des principales modification
 
-# pnpm
-pnpm build
+Exemples :
 
-# yarn
-yarn build
+* `feat(rating) : add rating logic and display on recipe page`
+* `fix(favorite) : fix favorite loading on profile page`
 
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+---
