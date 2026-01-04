@@ -91,8 +91,14 @@ async function onSubmit() {
         <label for="goal">Objectifs</label>
         <select id="goal" v-model.number="payload.goal_id">
           <option value="0" disabled>Choisir un objectif</option>
-          <option value="1">Test</option>
-          <option value="2">Test</option>
+          <option value="1">Perte de poids</option>
+          <option value="2">Riche en protéines</option>
+          <option value="2">Riche en nutriments</option>
+          <option value="2">Faible en calories</option>
+          <option value="2">Rapide et facile</option>
+          <option value="2">Adapté aux familles</option>
+          <option value="2">Économique</option>
+          <option value="2">Occasions spéciales</option>
         </select>
       </div>
 
