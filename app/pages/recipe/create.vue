@@ -21,22 +21,31 @@ async function onSubmit() {
     alert("Please fill in all required fields.");
     return;
   }
+
   const cookie = useCookie("recipe_token");
 
   try {
-    await $fetch(`${config.public.apiUrl}/api/recipes`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${cookie.value}`,
-      },
-      body: JSON.stringify(payload.value),
-    });
+    const response = await $fetch<{ data: { recipe_id: number } }>(
+      `${config.public.apiUrl}/api/recipes`,
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${cookie.value}`,
+        },
+        body: payload.value,
+      }
+    );
+
+    if (response?.data?.recipe_id) {
+      await navigateTo(`/recipe/${response.data.recipe_id}`);
+    }
   } catch (err) {
-    console.log(err);
+    console.error("Erreur lors de la création :", err);
   }
 }
+
 </script>
 
 <template>
@@ -82,8 +91,14 @@ async function onSubmit() {
         <label for="goal">Objectifs</label>
         <select id="goal" v-model.number="payload.goal_id">
           <option value="0" disabled>Choisir un objectif</option>
-          <option value="1">Test</option>
-          <option value="2">Test</option>
+          <option value="1">Perte de poids</option>
+          <option value="2">Riche en protéines</option>
+          <option value="2">Riche en nutriments</option>
+          <option value="2">Faible en calories</option>
+          <option value="2">Rapide et facile</option>
+          <option value="2">Adapté aux familles</option>
+          <option value="2">Économique</option>
+          <option value="2">Occasions spéciales</option>
         </select>
       </div>
 

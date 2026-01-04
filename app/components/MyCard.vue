@@ -35,7 +35,7 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  height: rem(464);
+  width: 100%;
   transition: transform 0.4s cubic-bezier(0.21, 0.8, 0.32, 1);
 
   &:hover {
