@@ -21,22 +21,31 @@ async function onSubmit() {
     alert("Please fill in all required fields.");
     return;
   }
+
   const cookie = useCookie("recipe_token");
 
   try {
-    await $fetch(`${config.public.apiUrl}/api/recipes`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${cookie.value}`,
-      },
-      body: JSON.stringify(payload.value),
-    });
+    const response = await $fetch<{ data: { recipe_id: number } }>(
+      `${config.public.apiUrl}/api/recipes`,
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${cookie.value}`,
+        },
+        body: payload.value,
+      }
+    );
+
+    if (response?.data?.recipe_id) {
+      await navigateTo(`/recipe/${response.data.recipe_id}`);
+    }
   } catch (err) {
-    console.log(err);
+    console.error("Erreur lors de la création :", err);
   }
 }
+
 </script>
 
 <template>
